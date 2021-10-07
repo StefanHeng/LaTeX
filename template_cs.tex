@@ -1,0 +1,229 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.85]{beramono}
+\usepackage[letterpaper, margin=0.5in]{geometry}
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\setfont}[1]{\renewcommand{\familydefault}{#1}\normalfont}
+\usepackage{titling}
+\setlength{\droptitle}{-4em}
+
+\usepackage{xcolor}
+\definecolor{dark}{HTML}{21252b}
+\definecolor{light}{HTML}{cccccc}
+\color{light}
+\pagecolor{dark}
+\newcommand{\setcol}[2]{\color{#1}#2\color{light}}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{logicproof}
+\input{steflogicproof.sty}
+\newcommand{\upge}[1]{\ensuremath{\UCmath{#1}}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\usepackage{nicefrac}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{myenum}
+    {\begin{enumerate}[nolistsep]\setlength{\itemsep}{4pt}\setlength{\parskip}{4pt}}
+    {\end{enumerate}}
+\newenvironment{myenuma}
+    {\begin{enumerate}[nolistsep, label=\alph*)]\setlength{\itemsep}{4pt}\setlength{\parskip}{4pt}}
+    {\end{enumerate}}
+\newenvironment{myenumr}
+    {\begin{enumerate}[nolistsep, label=\roman*)]\setlength{\itemsep}{4pt}\setlength{\parskip}{4pt}}
+    {\end{enumerate}}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection(\alph{subsection})}
+\renewcommand{\thesubsubsection}{\thesubsection. \roman{subsubsection}}
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\newenvironment{nspcflalign*} %No space
+   {\setlength{\abovedisplayskip}{4pt}\setlength{\belowdisplayskip}{4pt}%
+      \csname flalign*\endcsname}
+   {\csname endflalign*\endcsname\ignorespacesafterend}
+\allowdisplaybreaks
+
+\usepackage{units}
+\usepackage{tikz}
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+\newcommand{\clab}[1]{~~~\text{#1}} % Case label
+\newcommand{\lab}[1]{\clab{\circled{#1}}}
+
+\usepackage{ulem}
+\usepackage{cancel}
+
+\newcommand{\bfit}[1]{\textbf{\textit{#1}}}
+\newcommand{\inner}[1]{\langle#1\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\myeqns}[1]{\left\{\begin{array}{ll} #1 \end{array} \right.}
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\pr}[1]{\mathrm{Pr}\left[#1\right]}
+\newcommand{\p}[2]{p_{#1}\left(#2\right)}
+\newcommand{\E}[1]{\mathrm{Ex}\left[#1\right]}
+\newcommand{\Geo}[1]{\mathrm{Geo}\left(#1\right)}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\poly}[1]{\mathcal{P}_{#1}}
+\newcommand{\pipe}[1]{\left|#1\right|}
+\newcommand{\intlim}[1]{\Big| #1 \Big|}
+
+\newcommand{\A}[1]{\mathrm{A}\left(\text{#1}\right)}
+\newcommand{\adeg}[1]{#1\text{\textdegree}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+
+\newcommand{\mymat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newenvironment{sysmatrix}[1]
+    {\left[\begin{array}{@{}#1@{}}}{\end{array}\right]}
+\newcommand{\ro}[1]{%
+    \xrightarrow{\mathmakebox[\rowidth]{#1}}%
+}
+\newlength{\rowidth}% row operation width
+\AtBeginDocument{\setlength{\rowidth}{6em}}
+
+\newcommand{\im}[1]{\mathrm{im}#1}
+\newcommand{\kerp}[1]{\mathrm{ker}\paren{#1}}
+\newcommand{\rank}[1]{\mathrm{rank}(#1)}
+\newcommand{\tr}[1]{\mathrm{tr}#1}
+\newcommand{\Span}[1]{\mathrm{span}\set{#1}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\chmat}[2]{{S_{{\mathcal{#1}} \rightarrow {\mathcal{#2}}}}}
+\newcommand{\subbas}[2]{\left[#1\right]_{\mathcal{#2}}}
+\newcommand{\super}[2]{{\left(#1\right)}^{#2}}
+\newcommand{\proj}[2]{{\mathrm{proj}_{#1}(#2)}}
+\newcommand{\almu}[1]{\mathrm{almu\left(#1\right)}}
+\newcommand{\gemu}[1]{\mathrm{gemu\left(#1\right)}}
+
+\newcommand{\loss}[1]{\mathrm{loss}\paren{#1}}
+
+\usepackage{ stmaryrd }
+\newcommand{\indic}[1]{\llbracket#1\rrbracket}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\bigO}[1]{O\left\{#1\right\}}
+\newcommand{\justify}[1]{~~~\text{// #1}}
+\newcommand{\stm}[1]{\left[#1\right]}
+\newcommand{\clm}[2]{\textbf{Clm. #1}#2 \par \vspace{0.4em} \textit{Prf. of Clm. #1} \par}
+\newcommand{\comp}[1]{\overline{#1}}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+\let\P=\undefined
+\newcommand{\P}{\textbf{P}}
+\newcommand{\NP}{\textbf{NP}}
+\newcommand{\coNP}{\textbf{coNP}}
+\newcommand{\EXP}{\textbf{EXP}}
+\newcommand{\RP}{\textbf{RP}}
+\newcommand{\BPP}{\textbf{BPP}}
+
+\newcommand{\enc}{\textbf{Enc}}
+\newcommand{\dec}{\textbf{Dec}}
+
+\newcommand{\Lhalt}{L_\textrm{HALT}}
+\newcommand{\TSP}{\textrm{TSP}}
+\newcommand{\SAT}{\textrm{SAT}}
+\newcommand{\tSAT}{\textrm{3-SAT}}
+\newcommand{\vertco}{\textsc{Vertex-Cover}}
+\newcommand{\knaps}{\textmnrm{0-1 KNAPSACK}}
+\newcommand{\subsum}{\textrm{SUBSET-SUM}}
+\newcommand{\mdc}{\textrm{MDC}}
+\newcommand{\sfac}{\textrm{SmallerFactor}}
+\newcommand{\opt}{\textrm{OPT}}
+\newcommand{\primes}{\textrm{PRIMES}}
+\newcommand{\randqsort}{\textrm{Randomized-Quicksort}}
+
+\newcommand{\var}[2]{#1^{\paren{#2}}}
+\newcommand{\varb}[2]{\bar{#1}^{\paren{#2}}}
+\usepackage[ruled,vlined,linesnumbered,noend]{algorithm2e}
+\usepackage[noend]{algpseudocode}
+\SetKwRepeat{Do}{do}{while}
+\newenvironment{myalg}
+    {\setfont{lmr}\indent\begin{minipage}{0.9\linewidth}\begin{algorithm}[H]\DontPrintSemicolon\SetArgSty{textup}}
+    {\setfont{\sfdefault}\end{algorithm}\end{minipage}~\bigskip~\par}
+\algnewcommand{\OR}{\textbf{or }}
+\algnewcommand{\AND}{\textbf{and }}
+\algnewcommand{\NOT}{\textbf{not }}
+\algnewcommand{\BREAK}{\textbf{break }}
+\algnewcommand{\var}[1]{\texttt{#1}}
+\let\tt=\undefined
+\algnewcommand{\tt}[1]{\texttt{#1}}
+% \algnewcommand{\RUN}{\textbf{run }}
+% \algnewcommand{\LOOP}{\textbf{loop }}
+% \algnewcommand{\PRINT}{\textbf{print }}
+\algnewcommand{\Func}[3]{ %(func name, args, body)
+    \SetKwFunction{f}{#1}
+    \SetKwProg{func}{def}{:}{}
+    \func{\f{#2}}{
+        #3
+    }
+}
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    % backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=8,
+    xleftmargin=5.0ex
+}
+\lstset{style=mystyle}
+\newcommand{\func}[2]{\textsc{#1}(\textrm{\textit{#2}})}
+\usepackage{array}
+\usepackage{booktabs}
+\setlength{\heavyrulewidth}{1.5pt}
+\setlength{\abovetopsep}{4pt}
+
+\newcommand{\Time}[1]{\text{Time(#1)}}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\jot}{5pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+\usepackage{changepage}
+\newenvironment{indt}{\begin{adjustwidth}{2em}{}}{\end{adjustwidth}}
+% \renewcommand{\arraystretch}{2}  % This makes matrices have weird sizing
+
+\newcommand{\codein}[1]{\lstinputlisting[language=python]{#1}}
+\lstnewenvironment{py}[1][]
+  {\lstset{language=python}}
+  {}
+\newcommand{\myinputcode}[1]{\begin{indt}\lstinputlisting{#1}\end{indt}}
+
+
+\title{Title}
+\author{Stefan/Yuzhao Heng (stefanhg)}
+
+\begin{document}
+\normalsize
+\maketitle
+
+
+
+
+
+\section{}
+
+
+\end{document}

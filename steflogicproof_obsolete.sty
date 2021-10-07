@@ -1,6 +1,8 @@
 % Taken from Fitch-style (natural deduction macros)[https://www.mathstat.dal.ca/~selinger/fitch/fitchdoc.pdf]
 \RequirePackage{array}
 \RequirePackage{ifthen}
+\RequirePackage{changepage}
+\newenvironment{indt}{\begin{adjustwidth}{2em}{}}{\end{adjustwidth}}
 \newlength{\subproofhorizspace}
 \setlength{\subproofhorizspace}{0.5em}
 \newlength{\intersubproofvertspace}
@@ -27,7 +29,7 @@
   \def\lp@tab@format%
       {{r@{~~~}*{#1}{l}@{~}>{$}l<{$}@{~~~~}l@{~}*{#1}{r}}}
   }%
-  \center%
+  % \center%
   \expandafter\tabular\lp@tab@format%
   \lp@start@proof@line%
 }{%
@@ -53,6 +55,8 @@
     }%
   }%
   \endgroup%
+% !! As a table, doesn't seem to be able to indent
+% \begin{adjustwidth}{2em}{}
   \lp@stop@proof@line%
   \lp@orig@arraycr%
   \lp@add@space%
@@ -61,10 +65,15 @@
   \lp@cr@clines%
   &%
   \lp@continue@proof@line%
+%   \hspace{3em}
+%   ~~~aaaa~~~
+%   \hangindent=2em
+% \end{adjustwidth}
 }{%
 \ifthenelse{%
   0<\value{lp@nested}%
 }{% All is well; don’t do anything.
+    ~~~~bbbb~~~~
 }{%
   \PackageError{logicproof}{Cannot end a subproof before it begins}{%
     You must have a \protect\begin{subproof} before you can use %

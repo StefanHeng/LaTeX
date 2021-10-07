@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[letterpaper, margin=0.5in]{geometry}
+\usepackage{logicproof}
+\usepackage{lipsum}
+
+\usepackage{steffitch}
+
+
+
+\begin{document}
+\lipsum[2-4] \par
+~\par
+
+\begin{logicproof}{4}
+    (p\lor q)\lor r & premise\\
+
+    \begin{subproof}
+      (p\lor q) & assumption\\
+
+      \begin{subproof}
+        p & assumption\\
+        p \lor (q\lor r) & $\lor\mathrm{i}_1$, 3
+      \end{subproof}
+
+      \begin{subproof}
+        ~~~~ q & assumption\\
+        ~~~~ q\lor r & $\lor\mathrm{i}_1$, 5\\
+        ~~~~ p\lor (q\lor r) & $\lor\mathrm{i}_2$, 6
+      \end{subproof}
+
+      p\lor (q\lor r) & $\lor$e, 2, 3--4, 5--7
+    \end{subproof}
+
+    \begin{subproof}
+      r & assumption\\
+      q\lor r & $\lor\mathrm{i}_2$, 9\\
+      p\lor (q\lor r) & $\lor\mathrm{i}_2$, 10
+    \end{subproof}
+
+    p\lor (q\lor r) & $\lor$e, 1, 2--8, 9--11
+\end{logicproof}
+
+\[
+\begin{nd}
+    \hypo {1} {\forall y \neg P(y)}
+    \open
+    \hypo {2} {\exists x P(x)}
+    \open[u]
+    \hypo {3} {P(u)}
+    \have {4} {\forall y \neg P(y)}  \r{1}
+    \have {5} {\neg P(u)}            \Ae{4}
+    \have {6} {\bot}                 \ne{3,5}
+    \close
+    \have {6a}{\bot}                 \Ee{2,3-6}
+    \close
+    \have {7} {\neg \exists x P(x)}  \ni{2-6a}
+  \end{nd}
+\]
+
+\end{document}

@@ -1,0 +1,113 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\usepackage[T1]{fontenc}
+\usepackage[letterpaper, margin=0.5in]{geometry}
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\setfont}[1]{\renewcommand{\familydefault}{#1}\normalfont}
+\usepackage{titling}
+\setlength{\droptitle}{-4em}
+
+\usepackage{xcolor}
+\definecolor{dark}{HTML}{21252b}
+\definecolor{light}{HTML}{cccccc}
+\color{light}
+\pagecolor{dark}
+
+\usepackage{amsmath, amssymb, amsthm, mathtools, mathrsfs}
+\usepackage[shortlabels]{enumitem}
+\newenvironment{myenum}
+    {\begin{enumerate}[nolistsep]\setlength{\itemsep}{4pt}\setlength{\parskip}{4pt}}
+    {\end{enumerate}}
+\newenvironment{myenuma}
+    {\begin{enumerate}[nolistsep, label=\alph*)]\setlength{\itemsep}{4pt}\setlength{\parskip}{4pt}}
+    {\end{enumerate}}
+\renewcommand{\thesubsection}{\thesection. (\alph{subsection})}
+\renewcommand{\thesubsubsection}{\thesubsection. \roman{subsubsection}}
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\newenvironment{nspcflalign*} %No space
+   {\setlength{\abovedisplayskip}{4pt}\setlength{\belowdisplayskip}{4pt}%
+      \csname flalign*\endcsname}
+   {\csname endflalign*\endcsname\ignorespacesafterend}
+\allowdisplaybreaks
+
+\usepackage{units}
+\usepackage{tikz}
+\newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+\newcommand{\clab}[1]{~~~\text{#1}} % Case label
+\newcommand{\lab}[1]{\clab{\circled{#1}}}
+
+\newcommand{\bfit}[1]{\textbf{\textit{#1}}}
+\newcommand{\justify}[1]{~~~\text{\# #1}}
+\newcommand{\clm}[2]{\textbf{Clm. #1}#2 \par \vspace{0.4em} \textit{Prf. of Clm. #1} \par}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+\newcommand{\N}[1]{\mathbb{N}^{#1}}
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+\newcommand{\poly}[1]{\mathcal{P}_{#1}}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\pipe}[1]{\left|#1\right|}
+\newcommand{\inner}[1]{\langle#1\rangle}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\myeqns}[1]{\left\{\begin{array}{ll} #1 \end{array} \right.}
+\newcommand{\intlim}[1]{\Big| #1 \Big|}
+
+\newcommand{\scr}[1]{\mathscr{#1}}
+
+\newcommand{\mymat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newenvironment{sysmatrix}[1]
+    {\left[\begin{array}{@{}#1@{}}}{\end{array}\right]}
+\newcommand{\ro}[1]{%
+    \xrightarrow{\mathmakebox[\rowidth]{#1}}%
+}
+\newlength{\rowidth}% row operation width
+\AtBeginDocument{\setlength{\rowidth}{6em}}
+
+\newcommand{\im}[1]{\mathrm{im}#1}
+\newcommand{\kerp}[1]{\mathrm{ker}\paren{#1}}
+\newcommand{\rank}[1]{\mathrm{rank}(#1)}
+\newcommand{\tr}[1]{\mathrm{tr}#1}
+\newcommand{\Span}[1]{\mathrm{span}\set{#1}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\chmat}[2]{{S_{{\mathcal{#1}} \rightarrow {\mathcal{#2}}}}}
+\newcommand{\subbas}[2]{\left[#1\right]_{\mathcal{#2}}}
+\newcommand{\super}[2]{{\left(#1\right)}^{#2}}
+\newcommand{\proj}[2]{{\mathrm{proj}_{#1}(#2)}}
+\newcommand{\almu}[1]{\mathrm{almu\left(#1\right)}}
+\newcommand{\gemu}[1]{\mathrm{gemu\left(#1\right)}}
+
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\jot}{5pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+\usepackage{changepage}
+\newenvironment{indt}{\begin{adjustwidth}{\tindent}{}}{\end{adjustwidth}}
+
+
+
+
+
+
+
+\title{Title}
+\author{Stefan/Yuzhao Heng(stefanhg)}
+
+\begin{document}
+\normalsize
+\maketitle
+
+
+
+\section{}
+
+
+
+\end{document}
