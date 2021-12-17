@@ -1,4 +1,4 @@
-# LaTex Templates
+# Stefan's LaTex templates
 
-My customization for LaTeX.
+My templates for LaTeX writing, organized by folders.
 
