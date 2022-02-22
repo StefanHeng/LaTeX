@@ -1,23 +1,26 @@
-\documentclass[10pt]{article}
+\documentclass[12pt]{article}
 \usepackage[a4paper,top=1in,bottom=1in,left=1in,right=1in,heightrounded]{geometry}
+\usepackage{times}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+% \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-% \usepackage{fourier}
-\usepackage{fontspec}
-\setmainfont{opensans}
+% \usepackage{fontspec}
+% \setmainfont{opensans}
+% \setmainfont{Birka}
 % kerning,spacing not supported for lualatex
 \usepackage[activate={true,nocompatibility},final,tracking,protrusion,expansion,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage{setspace}
+\doublespacing
+
 
 \newlength\tindent
 \setlength{\tindent}{\parindent}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3pt}
+\setlength{\parskip}{4pt}
 \setlength{\jot}{5pt}
 \renewcommand{\indent}{\hspace*{\tindent}}
 
-
-\usepackage{amsmath,amssymb}
+% \usepackage{newtxtext,newtxmath}
 \usepackage[shortlabels]{enumitem}
 \newenvironment{myenum}
     {\begin{enumerate}[nolistsep]\setlength{\itemsep}{4pt}\setlength{\parskip}{4pt}}
@@ -28,7 +31,18 @@
 \newenvironment{myenumr}
     {\begin{enumerate}[nolistsep, label=\roman*)]\setlength{\itemsep}{4pt}\setlength{\parskip}{4pt}}
     {\end{enumerate}}
-\usepackage[colorlinks]{hyperref}
+
+\usepackage{xcolor}
+\colorlet{link}{black}
+\usepackage[hidelinks]{hyperref}
+% Pretty underline, inspired by https://tex.stackexchange.com/a/518546
+\RequirePackage{ulem}
+\RequirePackage{contour}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\ul}[1]{\uline{\phantom{#1}}\llap{\contour{white}{#1}}}
+\renewcommand{\emph}[1]{\textit{#1}}
+\newcommand{\linked}[3][]{\ifthenelse{\equal{#1}{}}{\textcolor{link}{\href{#3}{\ul{#2}}}}{\href{#3}{#2}}}
 
 
 \usepackage[super]{nth}
@@ -39,19 +53,15 @@
 \pagestyle{fancy}
 \fancyhf{}
 \setlength\headheight{14pt}
-\fancyhead[L]{Info}
-\fancyhead[R]{Stefan/Yuzhao Heng}
+\fancyhead[L]{Essay I}
+\fancyhead[R]{\linked[0]{Stefan/Yuzhao Heng}{https://stefanheng.github.io}}
+\fancypagestyle{titlepage}{%
+    \fancyhead[L]{CZECH315}
+}%
 \fancyfoot[R]{\thepage}
 
 
-% \title{Title}
-% \author{Stefan/Yuzhao Heng}
-% \date{\mydate}
-% \usepackage{titling}
-% \setlength{\droptitle}{-6em}
-
 \usepackage{lipsum}
-
 
 
 
