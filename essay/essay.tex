@@ -1,14 +1,11 @@
 \documentclass[12pt]{article}
 \usepackage[a4paper,top=1in,bottom=1in,left=1in,right=1in,heightrounded]{geometry}
-\usepackage{times}
+\usepackage{libertinus}
+% \usepackage{times}
 \usepackage[T1]{fontenc}
-% \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-% \usepackage{fontspec}
-% \setmainfont{opensans}
-% \setmainfont{Birka}
-% kerning,spacing not supported for lualatex
-\usepackage[activate={true,nocompatibility},final,tracking,protrusion,expansion,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage[activate={true,nocompatibility},final,kerning,spacing,tracking,protrusion,expansion,factor=1100,stretch=10,shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
 \usepackage{setspace}
 \doublespacing
 
@@ -52,7 +49,7 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\setlength\headheight{14pt}
+\setlength\headheight{15pt}
 \fancyhead[L]{Essay I}
 \fancyhead[R]{\linked[0]{Stefan/Yuzhao Heng}{https://stefanheng.github.io}}
 \fancypagestyle{titlepage}{%
@@ -78,22 +75,11 @@
 
 
 \section*{Blah}
-\indent
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah \par
+\indent \lipsum[1]
 
+\indent \lipsum[2]
 
-\indent
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah \par
-
-
+\indent \lipsum[3]
 
 
 \end{document}
